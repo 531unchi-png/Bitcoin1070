@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bitcoin1070 Pro</title>
+
+<style>
+body{
+margin:0;
+background:#050505;
+color:white;
+font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+}
+
+header{
+padding:30px;
+text-align:center;
+background:#111;
+border-bottom:2px solid gold;
+}
+
+h1{
+margin:0;
+font-size:34px;
+color:#ffb300;
+}
+
+.card{
+margin:20px;
+padding:20px;
+border-radius:20px;
+background:#181818;
+box-shadow:0 0 20px rgba(255,180,0,.15);
+}
+
+.title{
+font-size:14px;
+color:#999;
+}
+
+.value{
+font-size:34px;
+font-weight:bold;
+margin-top:10px;
+color:#00ff88;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>₿ Bitcoin1070 Pro</h1>
+
+<div>
+AI搭載・1070日サイクル分析
+</div>
+
+</header>
+
+<div class="card">
+
+<div class="title">
+
+現在価格
+
+</div>
+
+<div id="price" class="value">
+
+読み込み中...
+
+</div>
+
+</div>
+
+<script>
+
+async function loadBTC(){
+
+const r=await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=jpy");
+
+const d=await r.json();
+
+document.getElementById("price").innerHTML=
+
+"¥"+Number(d.bitcoin.jpy).toLocaleString();
+
+}
+
+loadBTC();
+
+setInterval(loadBTC,30000);
+
+</script>
+
+</body>
+</html>
