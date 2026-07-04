@@ -131,3 +131,124 @@ start();
 setInterval(loadBTC,60000);
 
 setInterval(update1070,60000);
+// ===============================
+// Bitcoin1070 PRO
+// script.js PART2
+// ===============================
+
+// Fear & Greed Index
+async function loadFearGreed(){
+
+    try{
+
+        const res = await fetch(
+        "https://api.alternative.me/fng/?limit=1"
+        );
+
+        const json = await res.json();
+
+        const value = json.data[0].value;
+
+        let text = value;
+
+        if(value>=75){
+
+            text += " 😎 Extreme Greed";
+
+        }else if(value>=55){
+
+            text += " 🙂 Greed";
+
+        }else if(value>=45){
+
+            text += " 😐 Neutral";
+
+        }else if(value>=25){
+
+            text += " 😟 Fear";
+
+        }else{
+
+            text += " 😱 Extreme Fear";
+
+        }
+
+        document.getElementById("fear").innerHTML=text;
+
+    }catch(e){
+
+        document.getElementById("fear").innerHTML="取得失敗";
+
+    }
+
+}
+
+
+// 半減期カウント
+function updateHalving(){
+
+    const target = new Date("2028-04-20");
+
+    const now = new Date();
+
+    const diff = target-now;
+
+    const days = Math.ceil(
+
+        diff/1000/60/60/24
+
+    );
+
+    document.getElementById("halving").innerHTML=
+
+        days+"日";
+
+}
+
+
+// TradingView
+function createTradingView(){
+
+if(typeof TradingView==="undefined") return;
+
+new TradingView.widget({
+
+"autosize":true,
+
+"symbol":"BINANCE:BTCUSDT",
+
+"interval":"D",
+
+"timezone":"Asia/Tokyo",
+
+"theme":"dark",
+
+"style":"1",
+
+"locale":"ja",
+
+"toolbar_bg":"#111111",
+
+"enable_publishing":false,
+
+"hide_top_toolbar":false,
+
+"allow_symbol_change":true,
+
+"container_id":"tradingview"
+
+});
+
+}
+
+
+// 初期化追加
+loadFearGreed();
+
+updateHalving();
+
+setTimeout(createTradingView,1000);
+
+setInterval(loadFearGreed,300000);
+
+setInterval(updateHalving,3600000);
