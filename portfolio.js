@@ -68,3 +68,34 @@ function calculatePortfolio(price){
 
 }
 loadPortfolioCrypto();
+// ===============================
+// 保有資産一覧
+// ===============================
+
+function showPortfolio(){
+
+    const html = `
+    <div>🪙 BTC　${holdings.BTC} BTC</div>
+    <div>💎 ETH　${holdings.ETH} ETH</div>
+    <div>⚡ XRP　${holdings.XRP} XRP</div>
+    <div>☀️ SOL　${holdings.SOL} SOL</div>
+    <div>🌊 SUI　${holdings.SUI} SUI</div>
+    <div>🎨 RENDER　${holdings.RENDER}</div>
+
+    <hr>
+
+    <div>🇺🇸 NVIDIA　${holdings.NVDA}株</div>
+
+    <hr>
+
+    <div>🇯🇵 三菱重工　${holdings.MHI}株</div>
+    <div>🇯🇵 アドバンテスト　${holdings.ADVT}株</div>
+    <div>🇯🇵 フジクラ　${holdings.FJK}株</div>
+    <div>🇯🇵 VRAIN　${holdings.VRAIN}株</div>
+    `;
+
+    document.getElementById("portfolioList").innerHTML = html;
+
+}
+
+showPortfolio();
