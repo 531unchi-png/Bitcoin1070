@@ -66,3 +66,4 @@ function calculatePortfolio(price){
         "¥" + Math.round(totalCrypto).toLocaleString();
 
 }
+loadPortfolioCrypto();
