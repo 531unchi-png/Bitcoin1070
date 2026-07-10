@@ -63,6 +63,7 @@ function calculatePortfolio(price){
         holdings.SUI * price.SUI +
         holdings.RENDER * price.RENDER;
 
-    console.log("Crypto Total",totalCrypto);
+    document.getElementById("totalAsset").innerHTML =
+        "¥" + Math.round(totalCrypto).toLocaleString();
+loadPortfolioCrypto();
 
-}
