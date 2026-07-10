@@ -55,7 +55,6 @@ async function loadPortfolioCrypto(){
 function calculatePortfolio(price){
 
     const totalCrypto =
-
         holdings.BTC * price.BTC +
         holdings.ETH * price.ETH +
         holdings.XRP * price.XRP +
@@ -65,5 +64,5 @@ function calculatePortfolio(price){
 
     document.getElementById("totalAsset").innerHTML =
         "¥" + Math.round(totalCrypto).toLocaleString();
-loadPortfolioCrypto();
 
+}
