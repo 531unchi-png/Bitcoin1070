@@ -14,6 +14,7 @@ const holdings = {
   NVDA: 15,
 
   MHI: 43,      // 三菱重工
+  ADVT: 8,      // アドバンテスト
   FJK: 2,       // フジクラ
   VRAIN: 8      // VRAIN Solution
 };
