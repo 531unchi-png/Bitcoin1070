@@ -122,27 +122,53 @@ function showPortfolio(price = {}){
 
     html+="<hr>";
 
-    html+=`
-    <h3>🇺🇸 米国株</h3>
+    const stock = calculateStockAssets();
 
-    <div class="asset">
-    <b>NVIDIA</b><br>
-    保有：${holdings.NVDA}株
-    </div>
+html += `
+<hr>
 
-    <hr>
+<h3>🇺🇸 米国株</h3>
 
-    <h3>🇯🇵 日本株</h3>
+<div class="asset">
+<b>NVIDIA</b><br>
+保有：${holdings.NVDA}株<br>
+現在価格：$${stockPrices.NVDA}<br>
+評価額：<b>¥${Math.round(stock.NVDA).toLocaleString()}</b>
+</div>
 
-    <div class="asset"><b>三菱重工</b><br>${holdings.MHI}株</div><br>
+<hr>
 
-    <div class="asset"><b>アドバンテスト</b><br>${holdings.ADVT}株</div><br>
+<h3>🇯🇵 日本株</h3>
 
-    <div class="asset"><b>フジクラ</b><br>${holdings.FJK}株</div><br>
+<div class="asset">
+<b>三菱重工</b><br>
+保有：${holdings.MHI}株<br>
+現在価格：¥${stockPrices.MHI.toLocaleString()}<br>
+評価額：<b>¥${Math.round(stock.MHI).toLocaleString()}</b>
+</div><br>
 
-    <div class="asset"><b>VRAIN</b><br>${holdings.VRAIN}株</div>
+<div class="asset">
+<b>アドバンテスト</b><br>
+保有：${holdings.ADVT}株<br>
+現在価格：¥${stockPrices.ADVT.toLocaleString()}<br>
+評価額：<b>¥${Math.round(stock.ADVT).toLocaleString()}</b>
+</div><br>
 
-    `;
+<div class="asset">
+<b>フジクラ</b><br>
+保有：${holdings.FJK}株<br>
+現在価格：¥${stockPrices.FJK.toLocaleString()}<br>
+評価額：<b>¥${Math.round(stock.FJK).toLocaleString()}</b>
+</div><br>
+
+<div class="asset">
+<b>VRAIN</b><br>
+保有：${holdings.VRAIN}株<br>
+現在価格：¥${stockPrices.VRAIN.toLocaleString()}<br>
+評価額：<b>¥${Math.round(stock.VRAIN).toLocaleString()}</b>
+</div>
+
+`;
 
     document.getElementById("portfolioList").innerHTML=html;
 
