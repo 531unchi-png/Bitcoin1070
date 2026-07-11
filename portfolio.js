@@ -170,7 +170,7 @@ html += `
 
 `;
 
-    document.getElementById("portfolioList").innerHTML=html;
+document.getElementById("portfolioList").innerHTML=html;
 
 }
 
