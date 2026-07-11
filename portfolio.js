@@ -220,4 +220,5 @@ function showPortfolio(price={}){
 }
 
 // ===============================
+loadPortfolio();
 loadPortfolioCrypto();
