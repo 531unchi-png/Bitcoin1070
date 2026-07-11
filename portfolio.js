@@ -222,3 +222,49 @@ function showPortfolio(price={}){
 // ===============================
 loadPortfolio();
 loadPortfolioCrypto();
+// ===============================
+// 編集画面
+// ===============================
+
+function createEditor(){
+
+    let html = "";
+
+    Object.keys(holdings).forEach(key=>{
+
+        html += `
+        <div style="margin-bottom:10px;">
+
+        <label>${key}</label><br>
+
+        <input
+        type="number"
+        id="${key}"
+        value="${holdings[key]}"
+        step="0.000001">
+
+        </div>
+        `;
+
+    });
+
+    document.getElementById("editor").innerHTML = html;
+
+}
+
+function saveHoldings(){
+
+    Object.keys(holdings).forEach(key=>{
+
+        holdings[key] =
+        Number(document.getElementById(key).value);
+
+    });
+
+    loadPortfolioCrypto();
+
+    alert("保存しました！");
+
+}
+
+createEditor();
