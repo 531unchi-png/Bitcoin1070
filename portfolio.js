@@ -77,8 +77,7 @@ const totalAsset =
     totalStocks;
 
 document.getElementById("totalAsset").innerHTML =
-    "¥" + Math.round(totalCrypto).toLocaleString();    
-
+    "¥" + Math.round(totalAsset).toLocaleString();
 showPortfolio(price);
 console.log("グラフ描画開始");
 drawPortfolioChart(price);
