@@ -73,29 +73,64 @@ loadPortfolioCrypto();
 // 保有資産一覧
 // ===============================
 
-function showPortfolio(){
+function showPortfolio(price = {}){
 
-    const html = `
-    <div>🪙 BTC　${holdings.BTC} BTC</div>
-    <div>💎 ETH　${holdings.ETH} ETH</div>
-    <div>⚡ XRP　${holdings.XRP} XRP</div>
-    <div>☀️ SOL　${holdings.SOL} SOL</div>
-    <div>🌊 SUI　${holdings.SUI} SUI</div>
-    <div>🎨 RENDER　${holdings.RENDER}</div>
+    const coins = [
+
+        {name:"BTC", amount:holdings.BTC, price:price.BTC || 0, unit:"BTC"},
+        {name:"ETH", amount:holdings.ETH, price:price.ETH || 0, unit:"ETH"},
+        {name:"XRP", amount:holdings.XRP, price:price.XRP || 0, unit:"XRP"},
+        {name:"SOL", amount:holdings.SOL, price:price.SOL || 0, unit:"SOL"},
+        {name:"SUI", amount:holdings.SUI, price:price.SUI || 0, unit:"SUI"},
+        {name:"RENDER", amount:holdings.RENDER, price:price.RENDER || 0, unit:"枚"}
+
+    ];
+
+    let html="";
+
+    html += "<h3>🪙 仮想通貨</h3>";
+
+    coins.forEach(c=>{
+
+        const value = c.amount*c.price;
+
+        html+=`
+        <div class="asset">
+            <b>${c.name}</b><br>
+            保有：${c.amount} ${c.unit}<br>
+            現在価格：¥${Math.round(c.price).toLocaleString()}<br>
+            評価額：<b>¥${Math.round(value).toLocaleString()}</b>
+        </div><br>
+        `;
+
+    });
+
+    html+="<hr>";
+
+    html+=`
+    <h3>🇺🇸 米国株</h3>
+
+    <div class="asset">
+    <b>NVIDIA</b><br>
+    保有：${holdings.NVDA}株
+    </div>
 
     <hr>
 
-    <div>🇺🇸 NVIDIA　${holdings.NVDA}株</div>
+    <h3>🇯🇵 日本株</h3>
 
-    <hr>
+    <div class="asset"><b>三菱重工</b><br>${holdings.MHI}株</div><br>
 
-    <div>🇯🇵 三菱重工　${holdings.MHI}株</div>
-    <div>🇯🇵 アドバンテスト　${holdings.ADVT}株</div>
-    <div>🇯🇵 フジクラ　${holdings.FJK}株</div>
-    <div>🇯🇵 VRAIN　${holdings.VRAIN}株</div>
+    <div class="asset"><b>アドバンテスト</b><br>${holdings.ADVT}株</div><br>
+
+    <div class="asset"><b>フジクラ</b><br>${holdings.FJK}株</div><br>
+
+    <div class="asset"><b>VRAIN</b><br>${holdings.VRAIN}株</div>
+
     `;
 
-    document.getElementById("portfolioList").innerHTML = html;
+    document.getElementById("portfolioList").innerHTML=html;
+
 
 }
 
