@@ -26,7 +26,7 @@ const assets = {
     const labels = [];
     const values = [];
 
-    Object.entries(crypto).forEach(([name,value])=>{
+    Object.entries(assets).forEach(([name,value])=>{
 
         if(value>0){
 
