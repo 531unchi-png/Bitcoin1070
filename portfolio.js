@@ -132,7 +132,5 @@ function showPortfolio(price = {}){
 
     document.getElementById("portfolioList").innerHTML=html;
 
-
 }
 
-showPortfolio();
