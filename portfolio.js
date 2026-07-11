@@ -56,6 +56,7 @@ async function loadPortfolioCrypto(){
 function calculatePortfolio(price){
 
     const totalCrypto =
+    const stock = calculateStockAssets();
         holdings.BTC * price.BTC +
         holdings.ETH * price.ETH +
         holdings.XRP * price.XRP +
