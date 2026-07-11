@@ -65,8 +65,9 @@ function calculatePortfolio(price){
 
 document.getElementById("totalAsset").innerHTML =
     "¥" + Math.round(totalCrypto).toLocaleString();    
-       
 
+showPortfolio(price);
+       
 }
 loadPortfolioCrypto();
 // ===============================
