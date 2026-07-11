@@ -67,6 +67,7 @@ document.getElementById("totalAsset").innerHTML =
     "¥" + Math.round(totalCrypto).toLocaleString();    
 
 showPortfolio(price);
+console.log("グラフ描画開始");
 drawPortfolioChart(price);
   
 }
