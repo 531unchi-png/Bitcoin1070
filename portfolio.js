@@ -63,6 +63,19 @@ function calculatePortfolio(price){
         holdings.SUI * price.SUI +
         holdings.RENDER * price.RENDER;
 
+const stock = calculateStockAssets();
+
+const totalStocks =
+    stock.NVDA +
+    stock.MHI +
+    stock.ADVT +
+    stock.FJK +
+    stock.VRAIN;
+
+const totalAsset =
+    totalCrypto +
+    totalStocks;
+
 document.getElementById("totalAsset").innerHTML =
     "¥" + Math.round(totalCrypto).toLocaleString();    
 
