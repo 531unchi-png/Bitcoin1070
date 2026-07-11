@@ -1,7 +1,9 @@
+console.log("chart.js 読み込み成功");
 let assetChart = null;
 
 function drawPortfolioChart(price = {}) {
 
+    console.log("drawPortfolioChart", price);
     const crypto = {
         BTC: holdings.BTC * (price.BTC || 0),
         ETH: holdings.ETH * (price.ETH || 0),
