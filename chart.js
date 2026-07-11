@@ -1,30 +1,72 @@
-// ===============================
-// Chart Manager
-// ===============================
+let assetChart = null;
 
-function drawPortfolioChart(){
+function drawPortfolioChart(price = {}) {
 
-    const crypto =
-        holdings.BTC +
-        holdings.ETH +
-        holdings.XRP +
-        holdings.SOL +
-        holdings.SUI +
-        holdings.RENDER;
+    const crypto = {
+        BTC: holdings.BTC * (price.BTC || 0),
+        ETH: holdings.ETH * (price.ETH || 0),
+        XRP: holdings.XRP * (price.XRP || 0),
+        SOL: holdings.SOL * (price.SOL || 0),
+        SUI: holdings.SUI * (price.SUI || 0),
+        RENDER: holdings.RENDER * (price.RENDER || 0)
+    };
 
-    const japan =
-        holdings.MHI +
-        holdings.ADVT +
-        holdings.FJK +
-        holdings.VRAIN;
+    const labels = [];
+    const values = [];
 
-    const usa =
-        holdings.NVDA;
+    Object.entries(crypto).forEach(([name,value])=>{
 
-    console.log("Crypto", crypto);
-    console.log("Japan", japan);
-    console.log("USA", usa);
+        if(value>0){
+
+            labels.push(name);
+            values.push(Math.round(value));
+
+        }
+
+    });
+
+    const ctx=document.getElementById("assetChart");
+
+    if(!ctx) return;
+
+    if(assetChart){
+
+        assetChart.destroy();
+
+    }
+
+    assetChart=new Chart(ctx,{
+
+        type:"doughnut",
+
+        data:{
+
+            labels:labels,
+
+            datasets:[{
+
+                data:values
+
+            }]
+
+        },
+
+        options:{
+
+            responsive:true,
+
+            plugins:{
+
+                legend:{
+
+                    position:"bottom"
+
+                }
+
+            }
+
+        }
+
+    });
 
 }
-
-drawPortfolioChart();
