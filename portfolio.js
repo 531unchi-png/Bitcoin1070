@@ -132,8 +132,8 @@ html += `
 <div class="asset">
 <b>NVIDIA</b><br>
 保有：${holdings.NVDA}株<br>
-現在価格：$${stockPrices.NVDA}<br>
-評価額：<b>¥${Math.round(stock.NVDA).toLocaleString()}</b>
+現在価格：取得中...<br>
+評価額：取得中...
 </div>
 
 <hr>
@@ -143,29 +143,29 @@ html += `
 <div class="asset">
 <b>三菱重工</b><br>
 保有：${holdings.MHI}株<br>
-現在価格：¥${stockPrices.MHI.toLocaleString()}<br>
-評価額：<b>¥${Math.round(stock.MHI).toLocaleString()}</b>
+現在価格：取得中...<br>
+評価額：取得中...
 </div><br>
 
 <div class="asset">
 <b>アドバンテスト</b><br>
 保有：${holdings.ADVT}株<br>
-現在価格：¥${stockPrices.ADVT.toLocaleString()}<br>
-評価額：<b>¥${Math.round(stock.ADVT).toLocaleString()}</b>
+現在価格：取得中...<br>
+評価額：取得中...
 </div><br>
 
 <div class="asset">
 <b>フジクラ</b><br>
 保有：${holdings.FJK}株<br>
-現在価格：¥${stockPrices.FJK.toLocaleString()}<br>
-評価額：<b>¥${Math.round(stock.FJK).toLocaleString()}</b>
+現在価格：取得中...<br>
+評価額：取得中...
 </div><br>
 
 <div class="asset">
 <b>VRAIN</b><br>
 保有：${holdings.VRAIN}株<br>
-現在価格：¥${stockPrices.VRAIN.toLocaleString()}<br>
-評価額：<b>¥${Math.round(stock.VRAIN).toLocaleString()}</b>
+現在価格：取得中...<br>
+評価額：取得中...
 </div>
 
 `;
